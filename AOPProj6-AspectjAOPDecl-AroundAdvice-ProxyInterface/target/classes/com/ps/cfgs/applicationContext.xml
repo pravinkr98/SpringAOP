@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- cfg Advice class -->
+	<bean id="pmAspect" class="com.ps.aspect.PerformanceMonitorAspect"/>
+	<bean id="cacheAspect" class="com.ps.aspect.CacheAspect"/>
+	<bean id="loggingAspect" class="com.ps.aspect.LoggingAspect"/>
+	
+	<!-- Target class cfg -->
+	<bean id="ecs" class="com.ps.service.ECommerceStore"/>
+	
+	<!-- enable AspectjAOP -->
+		<aop:config proxy-target-class="true">
+		<!-- cfg pointcut expression -->
+		<aop:pointcut expression="execution(* com.ps.service.IECommerceStore.*(..))" id="ptc"/>
+		<!-- make spring bean as Performance AspectjAOP advice -->
+		<aop:aspect ref="pmAspect" order="10">
+			<aop:around method="monitor" pointcut-ref="ptc"/>
+		</aop:aspect>
+		<!-- make spring bean as Cache AspectjAOP advice -->
+		<aop:aspect ref="cacheAspect" order="5">
+			<aop:around method="caching" pointcut="execution(float com.ps.service.IECommerceStore.calc*(..))"/>
+		</aop:aspect>
+		<!-- make spring bean as Logging AspectjAOP advice -->
+		<aop:aspect ref="loggingAspect" order="1">
+			<aop:around method="logging" pointcut-ref="ptc"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
