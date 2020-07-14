@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>home</groupId>
-  <artifactId>AOPProj5-AspectjAOPDecl-AroundAdvice</artifactId>
+  <artifactId>AOPProj7-AspectjAOPDecl-BeforeAdvice</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>AOPProj5-AspectjAOPDecl-AroundAdvice</name>
+  <name>AOPProj7-AspectjAOPDecl-BeforeAdvice</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -25,14 +25,6 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    
-    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
-<dependency>
-    <groupId>log4j</groupId>
-    <artifactId>log4j</artifactId>
-    <version>1.2.17</version>
-</dependency>
-    
     
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
 <dependency>
@@ -54,14 +46,6 @@
     <artifactId>aspectjweaver</artifactId>
     <version>1.9.5</version>
 </dependency>
-   
-   <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-	<dependency>
-	    <groupId>org.projectlombok</groupId>
-	    <artifactId>lombok</artifactId>
-	    <version>1.18.12</version>
-	    <scope>provided</scope>
-	</dependency>	 
     
   </dependencies>
 

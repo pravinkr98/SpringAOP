@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- Target class cfg -->
+	<bean id="showRoom" class="com.ps.service.CarShowRoom"/>
+	
+	<!-- Advice class cfg -->
+	<bean id="testDriveAdvice" class="com.ps.advice.TestDriveBeforeAspect"/>
+
+	<!-- Aspect cfg -->
+	<aop:config>
+		<!-- Pointcut cfg -->
+		<aop:pointcut expression="execution(String com.ps.service.CarShowRoom.purchaseCar(..))" id="ptc"/>
+		<!-- cfg spring bean as AspectjAOP advice -->
+		<aop:aspect ref="testDriveAdvice">
+			<aop:before method="testDriving" pointcut-ref="ptc"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
