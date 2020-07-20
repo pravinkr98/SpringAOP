@@ -9,7 +9,7 @@ import org.aspectj.lang.JoinPoint;
 
 public class TestDriveBeforeAspect {
 
-	public void testDriving(JoinPoint jp)throws Throwable{		
+	/*public void testDriving(JoinPoint jp)throws Throwable{		
 		Object args[]=null;
 		Writer writer=null;
 		
@@ -26,4 +26,37 @@ public class TestDriveBeforeAspect {
 			e.printStackTrace();
 		}
 	}//method
+	*/
+
+	/*public void testDriving(String modal,String color,Double rate,String salesman)throws Throwable{		
+		Writer writer=null;
+		//apply advice to write details in a file
+		try {
+			writer=new FileWriter("E:/auditLog.txt",true);
+			writer.write("Car model :: "+modal+" with color :: "+color+" having price :: "+rate+" by executive :: "+salesman+" on date :: "+new Date()+" has been taken  for a test drive\n");
+			writer.flush();
+			writer.close();					
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}//method
+	*/
+	
+	public void testDriving(JoinPoint jp, String modal,String color,Double rate,String salesman)throws Throwable{		
+		Writer writer=null;
+		
+		System.out.println(" Target method details"+jp.getSignature()+"   "+Arrays.deepToString(jp.getArgs()));
+		//apply advice to write details in a file
+		try {
+			writer=new FileWriter("E:/auditLog.txt",true);
+			writer.write("Car model :: "+modal+" with color :: "+color+" having price :: "+rate+" by executive :: "+salesman+" on date :: "+new Date()+" has been taken  for a test drive\n");
+			writer.flush();
+			writer.close();					
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}//method
+	
 }//class

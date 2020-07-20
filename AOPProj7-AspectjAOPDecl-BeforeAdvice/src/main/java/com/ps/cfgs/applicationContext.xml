@@ -14,7 +14,9 @@
 	<!-- Aspect cfg -->
 	<aop:config>
 		<!-- Pointcut cfg -->
-		<aop:pointcut expression="execution(String com.ps.service.CarShowRoom.purchaseCar(..))" id="ptc"/>
+		<!-- <aop:pointcut expression="execution(String com.ps.service.CarShowRoom.purchaseCar(..))" id="ptc"/> -->
+		<aop:pointcut expression="execution(String com.ps.service.CarShowRoom.purchaseCar(..)) and args(modal,color,rate,salesman)" id="ptc"/>
+		
 		<!-- cfg spring bean as AspectjAOP advice -->
 		<aop:aspect ref="testDriveAdvice">
 			<aop:before method="testDriving" pointcut-ref="ptc"/>
