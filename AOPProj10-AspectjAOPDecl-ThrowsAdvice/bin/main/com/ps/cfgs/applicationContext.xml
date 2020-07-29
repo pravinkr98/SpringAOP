@@ -11,14 +11,19 @@
 	<bean id="shopping" class="com.ps.service.ShoppingStore"/>
 	
 	<!-- cfg Aspect class -->
-	<bean id="expAspect" class="com.ps.advice.CommonExceptionLogger"/>
+	<bean id="expLoggerAspect" class="com.ps.advice.CommonExceptionLogger"/>
+	<bean id="expGrapherAspect" class="com.ps.advice.CommonExceptionGrapherAspect"/>
 	
 	<!-- enable AspectjAOP -->
 	<aop:config>
-		<aop:pointcut expression="execution(float com.ps.service.ShoppingStore.calculateSingleProductBillAmt(..))" id="ptc1"/>
+		<aop:pointcut expression="execution(float com.ps.service.ShoppingStore.calculateSingleProductBillAmt(..))" id="ptc"/>
 		
-		<aop:aspect ref="expAspect">
-			<aop:after-throwing method="exceptionLogger" pointcut-ref="ptc1" throwing="ex"/>
+		<aop:aspect ref="expLoggerAspect" order="2">
+			<aop:after-throwing method="exceptionLogger" pointcut-ref="ptc" throwing="ex"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="expGrapherAspect" order="10">
+			<aop:after-throwing method="exceptionGraphing" pointcut-ref="ptc" throwing="iae"/>
 		</aop:aspect>
 	</aop:config>
 

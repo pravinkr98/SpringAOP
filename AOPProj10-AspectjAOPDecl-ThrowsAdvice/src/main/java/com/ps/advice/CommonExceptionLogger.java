@@ -18,16 +18,16 @@ public class CommonExceptionLogger {
 		}
 	}
 	
-	public void exceptionLogger(JoinPoint jp, IllegalArgumentException ex) {
+	public void exceptionLogger(JoinPoint jp, Exception ex) {
 		logger.error(ex+" exception is raised in "+jp.getSignature()+" method with args "+Arrays.deepToString(jp.getArgs()));
 	}
 	
-	public void exceptionLogger(JoinPoint jp, Exception ex,int x) {
+	/*public void exceptionLogger(JoinPoint jp, Exception ex,int x) {
 		logger.error(ex+" exception is raised in "+jp.getSignature()+" method with args "+Arrays.deepToString(jp.getArgs()));
 	}
 	
 	public void exceptionLogger(JoinPoint jp, Throwable ex, int x) {
 		logger.error(ex+" exception is raised in "+jp.getSignature()+" method with args "+Arrays.deepToString(jp.getArgs()));
-	}
+	}*/
 	
 }
