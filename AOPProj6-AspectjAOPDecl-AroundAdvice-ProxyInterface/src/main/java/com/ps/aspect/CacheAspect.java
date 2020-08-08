@@ -7,13 +7,13 @@ import java.util.Map;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 public class CacheAspect {
-	private Map<String,Object> cacheMap = new HashMap();
+	private Map<String,Object> cacheMap = new HashMap<>();
 	
 	public Object caching(ProceedingJoinPoint pjp) throws Throwable {
 		String key=null;
 		Object retVal=null;
 		//prepare key
-		key=pjp.getSignature()+Arrays.deepToString(pjp.getArgs());
+		key=pjp.getSignature()+"    with args :: "+Arrays.deepToString(pjp.getArgs());
 		if(!cacheMap.containsKey(key)) {
 			retVal=pjp.proceed();		//invoke target method and get result
 			cacheMap.put(key, retVal);		//keeping target method results in map object

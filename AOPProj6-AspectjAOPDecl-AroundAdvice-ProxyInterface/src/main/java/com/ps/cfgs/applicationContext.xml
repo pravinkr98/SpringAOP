@@ -16,7 +16,7 @@
 	<!-- enable AspectjAOP -->
 		<aop:config proxy-target-class="true">
 		<!-- cfg pointcut expression -->
-		<aop:pointcut expression="execution(* com.ps.service.IECommerceStore.*(..))" id="ptc"/>
+		<aop:pointcut expression="execution(* com.ps.service.IECommerceStore.*(..))"  id="ptc"/>
 		<!-- make spring bean as Performance AspectjAOP advice -->
 		<aop:aspect ref="pmAspect" order="10">
 			<aop:around method="monitor" pointcut-ref="ptc"/>
