@@ -1,0 +1,35 @@
+cust: 
+#Simple properties
+  #syntax
+    #<prefix>:
+      #<property>: <value>
+  info: 
+    cNo: 1001    
+    cName: Narendra Modi    
+    #for Array properties
+      #systax
+        #<prefix>:
+          #<property>:
+          # -<space><value1>
+          # -<space><value2>
+          # -<space><value3>
+    addresses: 
+     - Delhi
+     - Gujrat
+     - Pradhanmantri Aawas
+     #for List/Set Collection properties (same as Array)   
+    nicknames: 
+     - modi
+     - chaywala
+     - pradhanmantri jee
+     #for Map Collection properties
+      #syntax
+       #<prefix>: 
+        #<property1>: <value1>
+        #<property2>: <value2>
+        #<property3>: <value3>
+    phones: 
+      home: 9999888877
+      office: 8888777766
+      personal: 7777666655    
+     

@@ -1,0 +1,16 @@
+cust:
+  info:
+    addresses:
+    - Delhi
+    - Gujrat
+    - Pradhanmantri Aawas
+    cName: Narendra Modi
+    cNo: 1001
+    nicknames:
+    - modi
+    - Chaywala
+    - pradhanmantri jee
+    phones:
+      home: 9999888877
+      office: 8888777766
+      personal: 7777666655
